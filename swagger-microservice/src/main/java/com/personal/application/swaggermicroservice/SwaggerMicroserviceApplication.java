@@ -10,8 +10,10 @@ import org.springframework.web.client.RestTemplate;
 
 import com.personal.application.swaggermicroservice.exception.ServiceExceptionHandler;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
-@Import(ServiceExceptionHandler.class)
+@EnableSwagger2
 public class SwaggerMicroserviceApplication {
 	private static Logger log = LoggerFactory.getLogger(SwaggerMicroserviceApplication.class);
 

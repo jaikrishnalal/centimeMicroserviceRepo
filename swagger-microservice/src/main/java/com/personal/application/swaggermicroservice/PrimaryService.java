@@ -22,6 +22,7 @@ import com.personal.application.swaggermicroservice.model.User;
 
 @RestController
 @Validated
+@RequestMapping("/api")
 public class PrimaryService {
 	
 	private static Logger LOGGER = LoggerFactory.getLogger(PrimaryService.class);
