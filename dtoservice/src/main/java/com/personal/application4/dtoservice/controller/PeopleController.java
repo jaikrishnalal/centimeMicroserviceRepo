@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.personal.application4.dtoservice.dto.PeopleSubClassDTO;
+import com.personal.application4.dtoservice.jsongenerator.PeopleJsonGenerator;
 import com.personal.application4.dtoservice.model.People;
 import com.personal.application4.dtoservice.service.PeopleService;
 
@@ -20,6 +22,9 @@ public class PeopleController {
 	
 	@Autowired
 	private PeopleService peopleService;
+	
+	@Autowired 
+	private PeopleJsonGenerator peopleJsonGenerator;
 	
 	@PostMapping("/addPerson")
 	public List<People> addPeople(@RequestBody List<People> peoples){
@@ -38,6 +43,13 @@ public class PeopleController {
 		return peopleService.getAllPersons();
 		
 	}
+	
+	@GetMapping("/fetchAllFormatted")
+	public List<PeopleSubClassDTO> getAllPersonsFormatted(){
+		return peopleJsonGenerator.retrievePeopleData(peopleService.getAllPersons());
+		
+	}
+
 
 
 
